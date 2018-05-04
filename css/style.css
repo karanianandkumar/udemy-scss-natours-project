@@ -10,6 +10,7 @@ Dark green: #28b485
 * {
     margin: 0;
     padding: 0;
+    /* To eliminate all paddings and margins applied by browser */
     box-sizing: border-box;
 }
 
@@ -25,11 +26,11 @@ body {
 
 .header {
     height: 95vh;
+    /* To apply gradient from start to right bottom corner from color 1 to color 2 using opacity to enable background image to visible */
     background-image: linear-gradient( to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
     /* To fit image inside the view port */
     background-size: cover;
     /* Top of the image won't be cropped while resizing the window */
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    /* clip-path: polygon(0 0, 100% 50%, 0 100%); */
 }
