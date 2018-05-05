@@ -53,6 +53,7 @@ body {
     left: 50%;
     /* Used to transform current element without reference of parent*/
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .heading-primary {
@@ -61,6 +62,7 @@ body {
 
     /*to fix animation jerk issue*/
     backface-visibility: hidden;
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -116,4 +118,78 @@ body {
         opacity: 1;
         transform: translateX(0)
     }
+}
+
+
+@keyframes moveInBottom{
+    0% {
+        opacity: 0;
+        transform: translateY(100px)
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+/*Link will be added automatically for Anchor tags*/
+.btn:link,
+.btn:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    display:inline-block;
+    border-radius: 100px;
+    position: relative;
+
+/* Transition is same as animation. Should be defined on initial state (not on hover or other psudo tags)*/
+    transition: all .2s;
+
+}
+
+.btn:hover{
+    transform: translateY(-3px);
+    /* h-offset v-offset blur color*/
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4)
+}
+
+.btn:active{
+    transform: translateY(-1px);
+    box-shadow:0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white{
+    background-color:white;
+    color:#777;
+    padding:15px 40px;
+}
+
+.btn::after {
+    content:"";
+    display:inline-block;
+    height: 100%;
+    width:100%;
+    border-radius: 100px;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: -1;
+
+    transition:all .4s;
+}
+
+.btn-white::after {
+    background-color: white;
+}
+
+.btn:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated{
+    animation: moveInBottom 0.5s ease-out 0.7s;  
+
+    /*To apply 0% animation properties to the element before loading the page*/
+    animation-fill-mode: backwards;
 }
